@@ -25,6 +25,11 @@ public class Corporation implements TaxPayer {
         System.out.println(getName() + " paid no taxes - we lobbied hard and it worked");
     }
 
+    @Override
+    public void fileReturn(){
+        System.out.printf("Return not filed,we sent our lawyers instead. \n");
+    }
+
     public String getName() {
         return name;
     }

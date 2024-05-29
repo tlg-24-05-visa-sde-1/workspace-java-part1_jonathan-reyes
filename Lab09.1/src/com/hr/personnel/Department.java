@@ -61,13 +61,13 @@ public class Department {
 
     /*
      * For all employees that take vacation, make them do that.
-     * This would be SalarieEmployees only
+     * This would be SalariedEmployees only
      */
     public void holidayBreak() {
         for (int i = 0; i < currentIndex; i++) {
             //If employees[i] is actually referring to a salaried employee object
             //"downcast" the employee reference to more specific type salariedemployee
-            //then we can call SalariedEmployee-specific methos like takeVaation
+            //then we can call SalariedEmployee-specific methods like takeVaation
             if (employees[i] instanceof SalariedEmployee) {
                 //((SalariedEmployee)employees[i]).takeVacation();
 

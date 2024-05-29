@@ -18,4 +18,9 @@ public class Executive extends SalariedEmployee {
     public void work() {
         System.out.println(getName() + " is enjoying a nice round of golf");
     }
+
+    @Override
+    public void fileReturn(){
+        System.out.println("Return filed electronically.");
+    }
 }
