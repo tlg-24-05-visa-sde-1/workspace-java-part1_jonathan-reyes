@@ -10,17 +10,17 @@ package com.hr.personnel;
 
 /**
  * The Department class manages employees.
- *
+ * <p>
  * Properties:
- *   String name
- *   String location
- *   Employee[] employees  the Employees in this department.
- *   int currentIndex      internal counter for number of employees in the department.
- *
+ * String name
+ * String location
+ * Employee[] employees  the Employees in this department.
+ * int currentIndex      internal counter for number of employees in the department.
+ * <p>
  * Methods (excluding get/set methods):
- *   void listEmployees()  print info on all employees in the department.
- *   void workEmployees()  make all employees in the department work.
- *   String toString()     self-explanatory.
+ * void listEmployees()  print info on all employees in the department.
+ * void workEmployees()  make all employees in the department work.
+ * String toString()     self-explanatory.
  */
 public class Department {
     // fields
@@ -58,19 +58,23 @@ public class Department {
             employees[i].pay();
         }
     }
+
     /*
      * For all employees that take vacation, make them do that.
      * This would be SalarieEmployees only
      */
-    public void holidayBreak(){
+    public void holidayBreak() {
         for (int i = 0; i < currentIndex; i++) {
             //If employees[i] is actually referring to a salaried employee object
             //"downcast" the employee reference to more specific type salariedemployee
             //then we can call SalariedEmployee-specific methos like takeVaation
-           if (employees[i] instanceof SalariedEmployee){
-               SalariedEmployee semp = (SalariedEmployee) employees[i];
-               semp.takeVacation();
-           }
+            if (employees[i] instanceof SalariedEmployee) {
+                //((SalariedEmployee)employees[i]).takeVacation();
+
+                //explicitly create a NEW reference of type SalariesEmployee(semp)
+                SalariedEmployee semp = (SalariedEmployee) employees[i];
+                semp.takeVacation();
+            }
         }
     }
 
