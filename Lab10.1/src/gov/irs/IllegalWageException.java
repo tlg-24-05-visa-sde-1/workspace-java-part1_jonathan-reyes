@@ -1,6 +1,6 @@
 package gov.irs;
 
-class IllegalWageException extends Exception {
+public class IllegalWageException extends Exception {
 
     public IllegalWageException() {
     }
