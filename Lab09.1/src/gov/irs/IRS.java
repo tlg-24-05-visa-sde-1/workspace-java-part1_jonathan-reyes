@@ -20,9 +20,16 @@ public class IRS {
 
     public void collectTaxes() {
         for (int i = 0; i < currentIndex; i++) {
+            //added in Lab 9.2
+            double deduction = payers[i].getStandardDeduction();
+            System.out.println("Tax payer's deduction is: " + deduction);
+
+            //in-class work with fileReturn()
             payers[i].fileReturn();
+
+            //already here in the starter code
             payers[i].payTaxes();
-            System.out.println(" ");
+            System.out.println(" ");//Better Readability
             //payers[i].getName();   Taxpayer doesnt have a getName method
         }
     }
