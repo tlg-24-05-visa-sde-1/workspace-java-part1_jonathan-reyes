@@ -8,8 +8,7 @@
 
 package com.poetry.io;
 
-import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.*;
 
 public class PoemClient {
 
@@ -35,8 +34,11 @@ public class PoemClient {
      */
     private static void readPoem() {
         // TODO: initialize 'reader' variable and complete the try block
-        try (BufferedReader reader = null) {
-
+        try (BufferedReader reader = new BufferedReader(new FileReader("famous-poem.txt"))) {
+            String line ;
+            while((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -55,6 +57,27 @@ public class PoemClient {
      * Use a try-with-resources to initialize the stream and auto-close it.
      */
     private static void writePoem() {
-        // TODO
+        try(PrintWriter out = new PrintWriter(new FileWriter("haiku.txt"))){
+            out.println("A cat sleeps soundly,");
+            out.println();
+            out.print("Dreaming of mice and fishes.");
+            out.println();
+            out.print("Soon supper will come");
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+        //using BufferedWriter
+        /*try(BufferedWriter writer = new BufferedWriter(new FileWriter("haiku.txt"))) {
+            writer.write("1st line is 5 syllables");
+            writer.newLine();
+            writer.write("2nd line is 7 syllables");
+            writer.newLine();
+            writer.write("3rd line is 5 syllables");
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }*/
     }
 }
