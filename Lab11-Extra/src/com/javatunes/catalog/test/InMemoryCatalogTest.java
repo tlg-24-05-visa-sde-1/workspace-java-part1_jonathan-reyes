@@ -76,7 +76,17 @@ class InMemoryCatalogTest {
     }
 
     private static void testCheapRock() {
-        //TODO
+        InMemoryCatalog catalog = new InMemoryCatalog();
+
+        //testing finding a positive result
+        Collection<MusicItem> resultFound = new ArrayList<>();
+        resultFound = catalog.findCheapRock(11.97);
+        dump(resultFound);
+
+        //testing finding a negative result
+        Collection<MusicItem> resultNotFound = new ArrayList<MusicItem>();
+        resultNotFound = catalog.findCheapRock(5.00);
+        System.out.println("Negative Result :" + resultNotFound.isEmpty());
     }
 
     private static void testFindById() {
