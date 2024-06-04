@@ -9,6 +9,8 @@
 package com.poetry.io;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class PoemClient {
 
@@ -16,7 +18,7 @@ public class PoemClient {
      * To run one method at a time, uncomment the call to the one you want to execute.
      */
     public static void main(String[] args) {
-        // readPoem();
+         readPoem();
         // writePoem();
     }
 
@@ -33,8 +35,16 @@ public class PoemClient {
      * The try-with-resources below allows you to initialize the stream and auto-close it.
      */
     private static void readPoem() {
-        // TODO: initialize 'reader' variable and complete the try block
-        try (BufferedReader reader = new BufferedReader(new FileReader("famous-poem.txt"))) {
+        try{
+            String poem = Files.readString(Path.of("famous-poem.txt"));
+            System.out.println(poem);
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+
+        //OLD METHOD OF READING IN A FILE
+        /*try (BufferedReader reader = new BufferedReader(new FileReader("famous-poem.txt"))) {
             String line ;
             while((line = reader.readLine()) != null) {
                 System.out.println(line);
@@ -42,7 +52,7 @@ public class PoemClient {
         }
         catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     /**
